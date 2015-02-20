@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Independent Study" company="" webLink="http://" view-date="2015-02-15" view-index="0" gantt-divider-location="943" resource-divider-location="300" version="2.7" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Independent Study" company="" webLink="http://" view-date="2015-02-01" view-index="0" gantt-divider-location="943" resource-divider-location="300" version="2.7" locale="en_US">
     <description/>
-    <view zooming-state="default:7" id="gantt-chart">
+    <view zooming-state="default:6" id="gantt-chart">
         <field id="tpd3" name="Name" width="75" order="0"/>
         <field id="tpd4" name="Begin date" width="13" order="1"/>
         <field id="tpd5" name="End date" width="11" order="2"/>
@@ -34,16 +34,16 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Create Simple RPi server" color="#8cb6ce" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2015-02-09" duration="5" complete="0" expand="true">
+        <task id="0" name="Create Simple RPi server" color="#8cb6ce" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2015-02-09" duration="5" complete="100" expand="true">
             <depend id="5" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="1" name="RPi&lt;-&gt;Arduino Communication" color="#8cb6ce" meeting="false" start="2015-02-11" duration="3" complete="0" expand="true">
+        <task id="1" name="RPi&lt;-&gt;Arduino Communication" color="#8cb6ce" meeting="false" start="2015-02-11" duration="3" complete="100" expand="true">
             <depend id="5" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="5" name="Full Browser-&gt;Arduino Communication" meeting="false" start="2015-02-16" duration="3" complete="0" expand="true">
+        <task id="5" name="Full Browser-&gt;Arduino Communication" color="#8cb6ce" meeting="false" start="2015-02-16" duration="3" complete="100" expand="true">
             <depend id="6" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="6" name="Arduino Communication Design" meeting="false" start="2015-02-19" duration="7" complete="0" expand="true"/>
+        <task id="6" name="Arduino Communication Design" color="#8cb6ce" meeting="false" start="2015-02-19" duration="7" complete="25" expand="true"/>
         <task id="9" name="Website Design" meeting="false" start="2015-03-03" duration="15" complete="0" expand="true">
             <task id="11" name="Site pages" meeting="false" start="2015-03-03" duration="3" complete="0" expand="true"/>
             <task id="12" name="Text Input" color="#8cb6ce" meeting="false" start="2015-03-16" duration="4" complete="0" expand="true"/>
@@ -93,9 +93,9 @@
         <displaycolumn property-id="tpd9" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd1" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd0" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd3" order="0" width="704" visible="true"/>
+        <displaycolumn property-id="tpd3" order="0" width="705" visible="true"/>
         <displaycolumn property-id="tpd4" order="1" width="126" visible="true"/>
-        <displaycolumn property-id="tpd5" order="2" width="107" visible="true"/>
+        <displaycolumn property-id="tpd5" order="2" width="108" visible="true"/>
     </taskdisplaycolumns>
     <previous/>
     <roles roleset-name="Default"/>
