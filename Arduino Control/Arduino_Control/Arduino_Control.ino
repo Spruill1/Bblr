@@ -25,6 +25,13 @@ void setup() {
    Serial.begin(9600);
 }
 
+//TODO: should we report every cycle or only on changes?
+void reportData(){
+    unsigned long report = 0;
+    
+    
+}
+
 void loop() {
   //check for messages from the server
   newMSG = false;
