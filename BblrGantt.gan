@@ -43,9 +43,9 @@
         <task id="5" name="Full Browser-&gt;Arduino Communication" color="#8cb6ce" meeting="false" start="2015-02-16" duration="3" complete="100" expand="true">
             <depend id="6" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="6" name="Arduino Communication Design" color="#8cb6ce" meeting="false" start="2015-02-19" duration="7" complete="28" expand="true"/>
-        <task id="9" name="Website Design" meeting="false" start="2015-03-03" duration="15" complete="0" expand="true">
-            <task id="11" name="Site pages" meeting="false" start="2015-03-03" duration="3" complete="0" expand="true"/>
+        <task id="6" name="Arduino Communication Design" color="#8cb6ce" meeting="false" start="2015-02-19" duration="7" complete="100" expand="true"/>
+        <task id="9" name="Website Design" meeting="false" start="2015-03-03" duration="15" complete="6" expand="true">
+            <task id="11" name="Site pages" color="#8cb6ce" meeting="false" start="2015-03-03" duration="3" complete="40" expand="true"/>
             <task id="12" name="Text Input" color="#8cb6ce" meeting="false" start="2015-03-16" duration="4" complete="0" expand="true"/>
             <task id="13" name="Game Control Input" color="#8cb6ce" meeting="false" start="2015-03-16" duration="6" complete="0" expand="true">
                 <depend id="15" type="2" difference="0" hardness="Strong"/>
@@ -54,10 +54,10 @@
         </task>
         <task id="15" name="Game Example Creation" color="#8cb6ce" meeting="false" start="2015-03-24" duration="8" complete="0" expand="true"/>
         <task id="16" name="Integration And Testing with Arduino" color="#8cb6ce" meeting="false" start="2015-04-06" duration="12" complete="0" expand="true"/>
-        <task id="17" name="Bubble Compensation" color="#000000" meeting="false" start="2015-02-16" duration="33" complete="25" expand="true">
-            <task id="18" name="Set up QTI sensor Reading" color="#8cb6ce" meeting="false" start="2015-02-16" duration="10" complete="75" expand="true"/>
-            <task id="19" name="Capabaility to adjust solenoid based on QTI" color="#8cb6ce" meeting="false" start="2015-02-27" duration="5" complete="0" expand="true"/>
-            <task id="21" name="Initial Bubble Compensation Code" color="#8cb6ce" meeting="false" start="2015-03-16" duration="7" complete="0" expand="true"/>
+        <task id="17" name="Bubble Compensation" color="#000000" meeting="false" start="2015-02-16" duration="33" complete="56" expand="true">
+            <task id="18" name="Set up QTI sensor Reading" color="#8cb6ce" meeting="false" start="2015-02-16" duration="10" complete="100" expand="true"/>
+            <task id="19" name="Capabaility to adjust solenoid based on QTI" color="#8cb6ce" meeting="false" start="2015-02-27" duration="5" complete="100" expand="true"/>
+            <task id="21" name="Initial Bubble Compensation Code" color="#8cb6ce" meeting="false" start="2015-03-16" duration="7" complete="20" expand="true"/>
             <task id="22" name="Finalize Bubble Compensation Code" color="#8cb6ce" meeting="false" start="2015-03-24" duration="7" complete="0" expand="true"/>
         </task>
         <task id="23" name="Circuits and Display" meeting="false" start="2015-02-16" duration="55" complete="41" expand="true">
@@ -93,9 +93,9 @@
         <displaycolumn property-id="tpd9" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd1" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd0" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd3" order="0" width="446" visible="true"/>
+        <displaycolumn property-id="tpd3" order="0" width="447" visible="true"/>
         <displaycolumn property-id="tpd4" order="1" width="85" visible="true"/>
-        <displaycolumn property-id="tpd5" order="2" width="73" visible="true"/>
+        <displaycolumn property-id="tpd5" order="2" width="74" visible="true"/>
     </taskdisplaycolumns>
     <previous/>
     <roles roleset-name="Default"/>
