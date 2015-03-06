@@ -60,23 +60,23 @@
             <task id="21" name="Initial Bubble Compensation Code" color="#8cb6ce" meeting="false" start="2015-03-16" duration="7" complete="0" expand="true"/>
             <task id="22" name="Finalize Bubble Compensation Code" color="#8cb6ce" meeting="false" start="2015-03-24" duration="7" complete="0" expand="true"/>
         </task>
-        <task id="23" name="Circuits and Display" meeting="false" start="2015-02-16" duration="55" complete="10" expand="true">
-            <task id="34" name="Study sources of unreliability" color="#8cb6ce" meeting="false" start="2015-02-16" duration="25" complete="40" expand="true">
+        <task id="23" name="Circuits and Display" meeting="false" start="2015-02-16" duration="55" complete="41" expand="true">
+            <task id="34" name="Study sources of unreliability" color="#8cb6ce" meeting="false" start="2015-02-16" duration="25" complete="90" expand="true">
                 <depend id="33" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="26" name="Select and order check valves" color="#8cb6ce" meeting="false" start="2015-02-23" duration="14" complete="0" expand="true">
+            <task id="26" name="Select and order check valves" color="#8cb6ce" meeting="false" start="2015-02-23" duration="14" complete="50" expand="true">
                 <depend id="28" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="28" name="Test check valves" meeting="false" start="2015-03-13" duration="6" complete="0" expand="true">
                 <depend id="33" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="31" name="Select and order test mediums" meeting="false" start="2015-02-23" duration="14" complete="0" expand="true">
+            <task id="31" name="Select and order test mediums" color="#8cb6ce" meeting="false" start="2015-02-23" duration="14" complete="50" expand="true">
                 <depend id="32" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="32" name="Test mediums" meeting="false" start="2015-03-13" duration="6" complete="0" expand="true">
                 <depend id="33" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="33" name="New Display Implementation" meeting="false" start="2015-03-23" duration="30" complete="0" expand="true"/>
+            <task id="33" name="New Display Implementation" color="#8cb6ce" meeting="false" start="2015-03-23" duration="30" complete="10" expand="true"/>
         </task>
     </tasks>
     <resources/>
