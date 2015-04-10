@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <script type="text/javascript">
+
+      function activateTab(pageId) {
+          var tabCtrl = document.getElementById('tabCtrl');
+          var pageToActivate = document.getElementById(pageId);
+          for (var i = 0; i < tabCtrl.childNodes.length; i++) {
+              var node = tabCtrl.childNodes[i];
+              if (node.nodeType == 1) { /* Element */
+                  node.style.display = (node == pageToActivate) ? 'block' : 'none';
+              }
+          }
+      }
+
+      fields = 0;
+      function addInput() {
+        if (fields != 10) {
+          document.getElementById('text').innerHTML += "<input type='file' value='' /><br />";
+          fields += 1;
+        } else {
+          document.getElementById('text').innerHTML += "<br />Only 10 upload fields allowed.";
+          document.form.add.disabled=true;
+        }
+      }
+
+      function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if(e.style.display == 'block')
+           e.style.display = 'none';
+        else
+           e.style.display = 'block';
+      }
+    </script>
+    <style type="text/css">
+    #textL, #textR, #helicopter_but, #simplepath_but {
+        float: left;
+    }</style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="javascript:activateTab('page1')">Pictures</a>
+      </li>
+      <li>
+        <a href="javascript:activateTab('page2')">Text</a>
+      </li>
+      <li>
+        <a href="javascript:activateTab('page3')">Games</a>
+      </li>
+      <li>
+        <a href="javascript:activateTab('page4')">About Us</a>
+      </li>
+    </ul>
+    <div id="tabCtrl">
+      <div id="page1" style="display: none">
+        <p><button id="led1" class="btn btn-primary">Red   LED</button></p>
+        <p><button id="led2" class="btn btn-primary">Green LED</button></p>
+        <p><button id="led3" class="btn btn-primary">Blue  LED</button></p>
+      </div>
+      <div id="page2" style="display: none;">
+        Enter Text:
+        <input type="text" id="txtSearch" onkeydown="if (event.keyCode == 13) socket.send($('#txtSearch').val());"/>
+        <br><br>
+        Only 8 characters can be shown at a time
+      </div>
+      <div id="page3" style="display: none;">
+        Installed Games:
+        <p><button id="helicopter_but" class="btn btn-primary" onclick="document.getElementById('helicopter').style.display = 'block'; document.getElementById('simple_path').style.display = 'none'">Helicopter</button></p>
+        <p><button id="simplepath_but" class="btn btn-primary" onclick="document.getElementById('simple_path').style.display = 'block'; document.getElementById('helicopter').style.display = 'none'">SimplePath</button></p>
+        <br><br>
+        <div id="helicopter" style="display: none"> unimplemented</div>
+        <div id="simple_path" style="display: none">
+          <input type="range" min = "0" max = "23" value = "11" oninput="socket.emit('game1_control',{value: this.value})">
+        </div>
+      </div>
+      <div id="page4" style="display: none;">
+        David Spruill - Control and Interface <br>
+        Xavier de Gunten - Self-Calibration <br>
+        Elder Yoshida - Hardware Engineering <br>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="textL">Status: </div>
+    <div id="textR">Not Connected </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+
+          var socket = io.connect('http://192.168.1.44:80/'); <!-- change to local ip -->
+
+          socket.on('connect', function(){$('#textR').value='connected'})
+
+          $('#led1').on('click',function(){
+            var tmp = 0;
+            socket.emit('Rled',{delay:tmp});
+          });
+          $('#led2').on('click',function(){
+            var tmp = 0;
+            socket.emit('Gled',{delay:tmp});
+          });
+          $('#led3').on('click',function(){
+            var tmp = 0;
+            socket.emit('Bled',{delay:tmp});
+          });
+
+        </script>
+  </body>
+</html>
