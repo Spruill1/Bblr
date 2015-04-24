@@ -12,7 +12,7 @@ int SawBubble[6];
 
 int BubbleLength[6];
 int result[6];
-int QTIBubbleScaling = 4;
+int QTIBubbleScaling = 10;
 int resultDone[6];
 int readAll;
 int BubbleEnded; 
@@ -30,6 +30,15 @@ int refineBegin=0;
 // Setup Mostly for Calibrate Bubble
 void setup(){
   
+  Serial.begin(9600);
+  
+  Serial.println(" I CAN PRINT SOMETHING");
+  for(int i = 0; i<24; i++){
+   pinMode(22+i, OUTPUT); digitalWrite(22+i, LOW); 
+  }
+  pinMode(46, OUTPUT); digitalWrite(46, LOW); 
+
+  
   //Initialization Code
   BubbleEnded=0;
   for(int i =0; i<6; i++){
@@ -43,18 +52,45 @@ void setup(){
   
    sensorPin[i]=A0+i;
    SolenoidTube[i]=22+i;
+   SolenoidTube[2]=46;
+
    pinMode(SolenoidTube[i], OUTPUT);      // make pin OUTPUT
 
   }
+     
+
+  Serial.println("Begin Get Calibrated Value");
 
   getCalibratedValue(); 
+  
+    Serial.println("Calibrated QTI Values Are");
+
+    for(int i = 0; i <6; i++){
+      Serial.print("  CalibratedQTIReading ");
+      Serial.print(i);
+      Serial.print(": ");
+      Serial.print(CalibratedQTIReading[i]);
+      Serial.print("\n");
+    }
+  CalibratedQTIReading[0]= 40;
+  CalibratedQTIReading[1]= 81;
+  CalibratedQTIReading[2]= 87;
+  CalibratedQTIReading[3]= 71;
+  CalibratedQTIReading[4]= 69;
+  CalibratedQTIReading[5]= 125;
+  
+  calibrate();
+    Serial.println(" End of Set up");
+
+
 }
 
 void loop(){
-  if(Serial.available(){
+  if(Serial.available()){
     byte myReadByte = Serial.read();
     if(myReadByte == 'c'){
       calibrate();
+
     }
     if(myReadByte == 'g'){
       playAvalanche(); 
@@ -89,18 +125,18 @@ void calibrate(){
   // Determine New Pixel Sizes
   for(int i = 0; i<6; i++){
     if(BubbleLength[i]> 30){ 
-      pixelDuration[i]=pixelDuration[i]+4; 
+      pixelDuration[i]=pixelDuration[i]-1; 
       Serial.print(i);
-      Serial.print(" pixelDuration++:");
+      Serial.print(" pixelDuration--:");
       Serial.print( pixelDuration[i]);
       Serial.print("\n"); 
     }
     if(BubbleLength[i]< 30){ 
       Serial.print(i);
-      Serial.print(" pixelDuration--:");
+      Serial.print(" pixelDuration++:");
       Serial.print( pixelDuration[i]);
       Serial.print("\n");
-      pixelDuration[i]=pixelDuration[i]-4;
+      pixelDuration[i]=pixelDuration[i]+1;
     }  
   }
   // Reinitialize everything
@@ -120,10 +156,10 @@ void calibrate(){
   Serial.print("\n");
   
   // Repeat for X times then break
-  if(refineBegin == refinementCounter){
-    Serial.println("I got to the End of RefineCounter");
-    while(1){}; //ENDLESS LOOP TO SIGNIFY THE END  //break;? 
-    }
+  //if(refineBegin == refinementCounter){
+  //  Serial.println("I got to the End of RefineCounter");
+  //  while(1){}; //ENDLESS LOOP TO SIGNIFY THE END  //break;? 
+  //  }
 }
  
 void releaseBubble(int Sol, int BubLength){
@@ -135,6 +171,8 @@ void releaseBubble(int Sol, int BubLength){
 
 void getBubbleLengths(){
   for(int i = 0; i<6; i++){
+      
+    
     if((result[i]<(CalibratedQTIReading[i] - QTIBubbleScaling)) && SawBubble[i]==0 && BubbleDone[i]==0){
       // Start of a Bubble
       BubbleLength[i]++;
@@ -142,6 +180,21 @@ void getBubbleLengths(){
       
       Serial.print(i);
       Serial.println(" result<Calibrated-QTIScaling & Saw Bubble==0 ");
+      
+      Serial.print("  result ");
+      Serial.print(i);
+      Serial.print(": ");
+      Serial.print(result[i]);
+      Serial.print("\n");
+      
+      Serial.print("CalibratedQTIReading[i] - QTIBubbleScaling ");
+      Serial.print(i);
+      Serial.print(": ");
+      Serial.print(CalibratedQTIReading[i] - QTIBubbleScaling);
+      Serial.print("\n");
+      
+      
+      
     }
     else if((result[i]>=(CalibratedQTIReading[i] - QTIBubbleScaling)) && SawBubble[i]==1 && BubbleDone[i]==0){
      // Bubble Ended
@@ -151,6 +204,20 @@ void getBubbleLengths(){
      
      Serial.print(i);
      Serial.println(" result>=Calibrated-QTIScaling & Saw Bubble==1 ");
+     
+      Serial.print("  result ");
+      Serial.print(i);
+      Serial.print(": ");
+      Serial.print(result[i]);
+      Serial.print("\n");
+      
+      Serial.print("CalibratedQTIReading[i] - QTIBubbleScaling ");
+      Serial.print(i);
+      Serial.print(": ");
+      Serial.print(CalibratedQTIReading[i] - QTIBubbleScaling);
+      Serial.print("\n");
+     
+     
     }
     else if(result[i]>=(CalibratedQTIReading[i] - QTIBubbleScaling)){
      // Nothing to See Here
@@ -228,6 +295,12 @@ void getCalibratedValue(){
         CalibratedQTIReading[i]++;
       } 
       else if(!resultDone[i]){
+              Serial.print("  CalibratedQTIReading ");
+      Serial.print(i);
+      Serial.print(": ");
+      Serial.print(CalibratedQTIReading[i]);
+      Serial.print("\n");
+      
         resultDone[i]=1;
         readAll++;
       }
