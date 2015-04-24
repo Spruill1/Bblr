@@ -1,3 +1,6 @@
+#include <LiquidCrystal.h>
+
+
 int sensorPin = A3;              // 220 or 1k resistor connected to this pin
 long result = 0;
 int BubbleSeen;
@@ -7,10 +10,10 @@ void setup()                    // run once, when the sketch starts
 {
    Serial.begin(9600);
    Serial.println("start");      // a personal quirk 
+   
 }
 void loop()                     // run over and over again
 {
-
    int RCBubbleReading = RCtime(sensorPin);
    if(RCBubbleReading <128 && BubbleSeen == 0){
    
@@ -30,7 +33,6 @@ void loop()                     // run over and over again
      BubbleLength++;
    }
    delay(10);
-
 }
 
 long RCtime(int sensPin){
@@ -46,3 +48,4 @@ long RCtime(int sensPin){
    }
    return result;                   // report results   
 }   
+
